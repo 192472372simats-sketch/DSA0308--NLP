@@ -1,0 +1,16 @@
+words = ["The", "boy", "is", "playing", "cricket"]
+
+tags = ["NN", "NN", "NN", "NN", "NN"]
+
+for i in range(len(words)):
+    if words[i] == "The":
+        tags[i] = "DT"
+    elif words[i] == "is":
+        tags[i] = "VBZ"
+    elif words[i].endswith("ing"):
+        tags[i] = "VBG"
+
+print("Transformation-Based Tagging:")
+
+for word, tag in zip(words, tags):
+    print(word, "->", tag)
