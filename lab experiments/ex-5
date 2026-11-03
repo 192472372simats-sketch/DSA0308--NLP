@@ -1,0 +1,18 @@
+def stem(word):
+    if word.endswith("ing"):
+        return word[:-3]
+    elif word.endswith("ed"):
+        return word[:-2]
+    elif word.endswith("ies"):
+        return word[:-3] + "y"
+    elif word.endswith("s"):
+        return word[:-1]
+    else:
+        return word
+
+words = ["playing", "played", "studies", "running", "connected"]
+
+print("Word Stemming:")
+
+for word in words:
+    print(word, "->", stem(word))
