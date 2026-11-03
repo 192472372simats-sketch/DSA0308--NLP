@@ -1,0 +1,15 @@
+text = input("Enter a sentence: ")
+
+words = text.split()
+
+for word in words:
+    if word.lower() in ["is", "am", "are", "was", "play", "plays"]:
+        tag = "Verb"
+    elif word.lower() in ["the", "a", "an"]:
+        tag = "Article"
+    elif word.endswith("ly"):
+        tag = "Adverb"
+    else:
+        tag = "Noun"
+
+    print(word, "->", tag)
