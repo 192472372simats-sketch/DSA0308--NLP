@@ -1,0 +1,17 @@
+import re
+
+words = ["playing", "quickly", "beautiful", "boy", "played"]
+
+for word in words:
+    if re.search("ing$", word):
+        tag = "Verb"
+    elif re.search("ly$", word):
+        tag = "Adverb"
+    elif re.search("ful$", word):
+        tag = "Adjective"
+    elif re.search("ed$", word):
+        tag = "Past Verb"
+    else:
+        tag = "Noun"
+
+    print(word, "->", tag)
