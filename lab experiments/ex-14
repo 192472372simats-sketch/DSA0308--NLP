@@ -1,0 +1,19 @@
+import nltk
+from nltk import CFG
+
+grammar = CFG.fromstring("""
+S -> SG_NP SG_VP | PL_NP PL_VP
+SG_NP -> 'He' | 'She'
+PL_NP -> 'They' | 'We'
+SG_VP -> 'runs' | 'eats'
+PL_VP -> 'run' | 'eat'
+""")
+
+parser = nltk.ChartParser(grammar)
+
+sentence = input("Enter sentence: ").split()
+
+if list(parser.parse(sentence)):
+    print("Subject-Verb Agreement Correct")
+else:
+    print("Subject-Verb Agreement Incorrect")
