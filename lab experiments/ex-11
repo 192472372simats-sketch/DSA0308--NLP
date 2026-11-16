@@ -1,0 +1,25 @@
+
+def S():
+    return A() and B()
+
+def A():
+    global pos
+    if pos < len(tokens) and tokens[pos] == 'a':
+        pos += 1
+        return True
+    return False
+
+def B():
+    global pos
+    if pos < len(tokens) and tokens[pos] == 'b':
+        pos += 1
+        return True
+    return False
+
+tokens = input("Enter string: ")
+pos = 0
+
+if S() and pos == len(tokens):
+    print("String Accepted")
+else:
+    print("String Rejected")
