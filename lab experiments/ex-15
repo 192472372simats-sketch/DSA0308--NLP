@@ -1,0 +1,18 @@
+import nltk
+from nltk import PCFG
+from nltk.parse import ViterbiParser
+
+grammar = PCFG.fromstring("""
+S -> NP VP [1.0]
+NP -> 'John' [1.0]
+VP -> 'runs' [0.7] | 'walks' [0.3]
+""")
+
+parser = ViterbiParser(grammar)
+
+sentence = input("Enter sentence: ").split()
+
+for tree in parser.parse(sentence):
+    print("Parse Tree:")
+    print(tree)
+    print("Probability:", tree.prob())
